@@ -1,0 +1,56 @@
+/**
+ * Variables CSS globales
+ */
+
+:root {
+    /* Colores principales */
+    --color-primario: #00A3E0;
+    --color-secundario: #0033A0;
+    --color-exito: #00C853;
+    --color-error: #FF3B30;
+    --color-positivo: #00FF88;
+
+    /* Colores de texto */
+    --color-texto-principal: #333;
+    --color-texto-secundario: #666;
+    --color-texto-terciario: #999;
+
+    /* Colores de fondo */
+    --color-fondo-claro: #f5f7fa;
+    --color-fondo-blanco: #ffffff;
+    --color-fondo-gris: #f0f0f0;
+
+    /* Espaciados */
+    --espaciado-xs: 5px;
+    --espaciado-sm: 10px;
+    --espaciado-md: 15px;
+    --espaciado-lg: 20px;
+    --espaciado-xl: 30px;
+
+    /* Tamaños de fuente */
+    --font-size-xs: 0.75em;
+    --font-size-sm: 0.8em;
+    --font-size-base: 0.9em;
+    --font-size-md: 1.1em;
+    --font-size-lg: 1.3em;
+    --font-size-xl: 2.5em;
+
+    /* Border radius */
+    --border-radius-sm: 10px;
+    --border-radius-md: 15px;
+    --border-radius-lg: 20px;
+    --border-radius-xl: 25px;
+    --border-radius-full: 50%;
+
+    /* Sombras */
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+    /* Transiciones */
+    --transition-rapida: 0.3s ease;
+    --transition-media: 0.5s ease;
+
+    /* Fuente */
+    --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}

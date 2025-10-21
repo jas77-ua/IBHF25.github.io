@@ -1,0 +1,304 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+.contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    min-height: 100vh;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.encabezado {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #42D9FF;
+}
+
+.boton-volver {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    border: 2px solid #42D9FF;
+    color: #004481;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.boton-volver:hover {
+    background-color: #42D9FF;
+    color: white;
+    transform: translateX(-2px);
+}
+
+.logo-sabadell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.circulo-logo {
+    width: 40px;
+    height: 40px;
+    background-color: #036bfe;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.titulo-principal {
+    color: #004481;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.subtitulo {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Secciones */
+.seccion {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(66, 217, 255, 0.1);
+    border: 1px solid #e0f7ff;
+}
+
+.titulo-seccion {
+    color: #004481;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0f7ff;
+}
+
+/* Formularios */
+.grupo-formulario {
+    margin-bottom: 15px;
+}
+
+.etiqueta {
+    display: block;
+    margin-bottom: 5px;
+    color: #004481;
+    font-weight: 500;
+}
+
+.campo-entrada {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #b3e5fc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.campo-entrada:focus {
+    outline: none;
+    border-color: #42D9FF;
+    box-shadow: 0 0 0 2px rgba(66, 217, 255, 0.2);
+}
+
+/* Botones */
+.boton-principal {
+    background-color: #42D9FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.boton-principal:hover {
+    background-color: #29c7ff;
+}
+
+.boton-nfc {
+    background-color: #004481;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.boton-nfc:hover {
+    background-color: #003366;
+    transform: translateY(-2px);
+}
+
+.boton-nfc:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.icono-nfc {
+    font-size: 1.3rem;
+}
+
+/* Resultados */
+.resultado-info {
+    background-color: #e1f5fe;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.destacado {
+    font-weight: bold;
+    color: #004481;
+}
+
+.estado-deuda {
+    margin-top: 15px;
+}
+
+.lista-deudas {
+    margin-top: 10px;
+}
+
+.item-deuda {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #e0f7ff;
+}
+
+.item-deuda:last-child {
+    border-bottom: none;
+}
+
+.deuda-pagada {
+    color: #4caf50;
+}
+
+.deuda-pendiente {
+    color: #ff9800;
+}
+
+/* NFC */
+.contenedor-nfc {
+    text-align: center;
+}
+
+.info-nfc {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.estado-nfc {
+    margin-top: 15px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.estado-conectando {
+    color: #ff9800;
+    font-weight: 500;
+}
+
+.estado-exitoso {
+    color: #4caf50;
+    font-weight: 500;
+}
+
+.estado-error {
+    color: #f44336;
+    font-weight: 500;
+}
+
+.animacion-nfc {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Historial */
+.lista-pagos {
+    margin-top: 10px;
+}
+
+.item-pago {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid #e0f7ff;
+    background-color: #f9fdff;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.item-pago:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.fecha-pago {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .contenedor {
+        padding: 15px;
+    }
+    
+    .titulo-principal {
+        font-size: 1.8rem;
+    }
+    
+    .seccion {
+        padding: 15px;
+    }
+}

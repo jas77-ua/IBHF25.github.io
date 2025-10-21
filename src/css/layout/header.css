@@ -1,0 +1,81 @@
+/**
+ * Encabezado de la aplicación con saldo y progreso
+ */
+
+.encabezado-app {
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    color: white;
+    padding: var(--espaciado-xl) var(--espaciado-lg) var(--espaciado-lg);
+    border-bottom-left-radius: var(--border-radius-xl);
+    border-bottom-right-radius: var(--border-radius-xl);
+}
+
+/* Ajuste para móvil con menú hamburguesa */
+@media (max-width: 768px) {
+    .encabezado-app {
+        padding-top: 70px; /* Espacio para el botón hamburguesa */
+    }
+}
+
+.info-usuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--espaciado-md);
+}
+
+.texto-bienvenida {
+    font-size: var(--font-size-base);
+    opacity: 0.8;
+}
+
+.cantidad-saldo {
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+    margin: var(--espaciado-sm) 0;
+    transition: transform var(--transition-rapida);
+}
+
+.meta-ahorro {
+    background: rgba(255, 255, 255, 0.2);
+    padding: var(--espaciado-sm) var(--espaciado-md);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+}
+
+.texto-meta {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+}
+
+.cantidad-meta {
+    font-weight: bold;
+    font-size: var(--font-size-md);
+}
+
+/* Progreso de ahorro */
+.progreso-ahorro {
+    margin-top: var(--espaciado-md);
+}
+
+.texto-progreso {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--espaciado-xs);
+    opacity: 0.8;
+}
+
+.barra-progreso {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius-sm);
+    height: 8px;
+    margin-top: var(--espaciado-xs);
+    overflow: hidden;
+}
+
+.relleno-progreso {
+    background: var(--color-positivo);
+    height: 100%;
+    border-radius: var(--border-radius-sm);
+    width: 65%;
+    transition: width var(--transition-media);
+}

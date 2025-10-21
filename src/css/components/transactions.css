@@ -1,0 +1,50 @@
+/**
+ * Componente de Transacciones
+ */
+
+.lista-transacciones {
+    background: var(--color-fondo-blanco);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.elemento-transaccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--espaciado-md) var(--espaciado-lg);
+    border-bottom: 1px solid var(--color-fondo-gris);
+    animation: aparecer 0.3s ease-out;
+}
+
+.elemento-transaccion:last-child {
+    border-bottom: none;
+}
+
+.info-transaccion {
+    flex: 1;
+}
+
+.nombre-transaccion {
+    font-weight: 600;
+    color: var(--color-texto-principal);
+}
+
+.fecha-transaccion {
+    font-size: var(--font-size-sm);
+    color: var(--color-texto-terciario);
+}
+
+.cantidad-transaccion {
+    font-weight: bold;
+    font-size: var(--font-size-md);
+}
+
+.positivo {
+    color: var(--color-exito);
+}
+
+.negativo {
+    color: var(--color-error);
+}

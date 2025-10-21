@@ -1,0 +1,400 @@
+/* ESTILOS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* PANTALLA PRINCIPAL */
+.pantalla {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    height: 100dvh; /* Para móviles modernos */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 100%;
+}
+
+/* BARRA DE ESTADO */
+.barra-estado {
+    background: transparent;
+    padding: 10px 20px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
+    min-height: 40px;
+    display: none;
+}
+
+.hora-actual {
+    font-weight: bold;
+}
+
+.iconos-estado {
+    display: flex;
+    gap: 5px;
+}
+
+/* CONTENIDO DE LA APP */
+.contenido-app {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    min-height: 0;
+}
+
+/* ENCABEZADO DE LA APP */
+.encabezado-app {
+    background: linear-gradient(135deg, #00A3E0, #0033A0);
+    color: white;
+    padding: 30px 20px 20px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.info-usuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.texto-bienvenida {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.cantidad-saldo {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 10px 0;
+    transition: transform 0.3s ease;
+}
+
+.meta-ahorro {
+    background: rgba(255,255,255,0.2);
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.texto-meta {
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+.cantidad-meta {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* PROGRESO DE AHORRO */
+.progreso-ahorro {
+    margin-top: 15px;
+}
+
+.texto-progreso {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.barra-progreso {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    height: 8px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.relleno-progreso {
+    background: #00FF88;
+    height: 100%;
+    border-radius: 10px;
+    width: 65%;
+    transition: width 0.5s ease;
+}
+
+/* SECCIONES */
+.seccion {
+    padding: 20px;
+}
+
+.titulo-seccion {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* CUADRÍCULA DE MISIONES */
+.cuadricula-misiones {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.tarjeta-mision {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #00A3E0;
+    transition: all 0.3s ease;
+}
+
+.tarjeta-mision:active {
+    transform: scale(0.98);
+}
+
+.titulo-mision {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.descripcion-mision {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.recompensa-mision {
+    background: #00A3E0;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.progreso-mision {
+    margin-bottom: 10px;
+}
+
+.texto-progreso-mision {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.barra-progreso-mision {
+    background: #f0f0f0;
+    border-radius: 10px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.relleno-progreso-mision {
+    background: #00A3E0;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* BOTONES */
+.boton {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+.boton-principal {
+    background: #00A3E0;
+    color: white;
+}
+
+.boton-principal:active {
+    background: #0088c0;
+    transform: scale(0.98);
+}
+
+.boton-exito {
+    background: #00C853;
+    color: white;
+}
+
+.boton:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* LISTA DE TRANSACCIONES */
+.lista-transacciones {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.elemento-transaccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.elemento-transaccion:last-child {
+    border-bottom: none;
+}
+
+.info-transaccion {
+    flex: 1;
+}
+
+.nombre-transaccion {
+    font-weight: 600;
+    color: #333;
+}
+
+.fecha-transaccion {
+    font-size: 0.8em;
+    color: #999;
+}
+
+.cantidad-transaccion {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.positivo {
+    color: #00C853;
+}
+
+.negativo {
+    color: #FF3B30;
+}
+
+/* NAVEGACIÓN INFERIOR */
+.navegacion-inferior {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 10px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    flex-shrink: 0;
+    flex-grow: 0;
+    min-height: 65px;
+    padding-bottom: max(15px, env(safe-area-inset-bottom));
+}
+
+.elemento-nav {
+    text-align: center;
+    color: #666;
+    font-size: 0.75em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    flex: 1;
+}
+
+.elemento-nav.activo {
+    color: #00A3E0;
+}
+
+.icono-nav {
+    font-size: 1.4em;
+    margin-bottom: 4px;
+}
+
+/* EFECTOS DE ANIMACIÓN */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tarjeta-mision {
+    animation: aparecer 0.5s ease-out;
+}
+
+.elemento-transaccion {
+    animation: aparecer 0.3s ease-out;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+    .controles-externos {
+        display: block;
+    }
+    
+    .pantalla {
+        max-width: 100%;
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .cantidad-saldo {
+        font-size: 3em;
+    }
+    
+    .cuadricula-misiones {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop grande */
+@media (min-width: 1025px) {
+    .cantidad-saldo {
+        font-size: 3.5em;
+    }
+    
+    .cuadricula-misiones {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .seccion {
+        padding: 30px;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 375px) {
+    .cantidad-saldo {
+        font-size: 2em;
+    }
+    
+    .info-usuario {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

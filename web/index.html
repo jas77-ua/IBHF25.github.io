@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="icon" type="image/x-icon" href="../src/assets/favicon.ico">
+    <title>Sabadell NEXT - Demo App</title>
+    <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="../src/css/touch_share/touch_share.css">
+    <link rel="stylesheet" href="../src/css/misiones/misiones.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <script src="js/session.js"></script>
+<!-- ...existing code... -->
+</head>
+<body>
+    <div class="pantalla">
+        <!-- Botón hamburguesa (solo móvil) -->
+        <button class="boton-hamburguesa" id="boton-hamburguesa" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        
+
+        <!-- Menú lateral móvil -->
+        <div class="menu-lateral" id="menu-lateral">
+            <div class="menu-header">
+                <h2>Menú</h2>
+                <button class="boton-cerrar-menu" id="boton-cerrar-menu" aria-label="Cerrar menú">
+                    <i class="fi fi-rr-cross"></i>
+                </button>
+            </div>
+            <nav class="menu-navegacion">
+                <a href="#" class="menu-item activo" data-pagina="inicio">
+                    <i class="fi fi-rr-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="#" class="menu-item" data-pagina="cuentas">
+                    <i class="fi fi-rr-bank"></i>
+                    <span>Mis Cuentas</span>
+                </a>
+                <a href="#" class="menu-item" data-pagina="transferencias">
+                    <i class="fi fi-rr-arrow-right"></i>
+                    <span>Transferencias</span>
+                </a>
+                <a href="#" class="menu-item" data-pagina="misiones">
+                    <i class="fi fi-rr-gamepad"></i>
+                    <span>Misiones</span>
+                </a>
+                <a href="#" class="menu-item" data-pagina="sabadingo">
+                    <i class="fi fi-rr-graduation-cap"></i>
+                    <span>SabaDingo</span>
+                </a>
+                <a href="#" class="menu-item" data-pagina="touch-share">
+                    <i class="fi fi-rr-users-alt"></i>
+                    <span>Touch & Share</span>
+                </a>
+                <a href="#" class="menu-item" data-pagina="estadisticas">
+                    <i class="fi fi-rr-chart-histogram"></i>
+                    <span>Estadísticas</span>
+                </a>
+                <a href="../" class="menu-item" data-pagina="perfil">
+                    <i class="fi fi-rr-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Overlay oscuro -->
+        <div class="menu-overlay" id="menu-overlay"></div>
+
+        <!-- Contenido de la App -->
+        <div class="contenido-app">
+            <!-- Encabezado (solo en inicio) -->
+            <div class="encabezado-app" data-vista-header="inicio">
+                <div class="info-usuario">
+                    <div>
+                        <div class="texto-bienvenida">¡Hola, Alex! <i class="fi fi-rr-hand-wave"></i></div>
+                        <div class="cantidad-saldo" id="saldo">453.30€</div>
+                    </div>
+                    <div class="meta-ahorro">
+                        <div class="texto-meta">Meta ahorro</div>
+                        <div class="cantidad-meta">500€</div>
+                    </div>
+                </div>
+                <div class="progreso-ahorro">
+                    <div class="texto-progreso">Progreso: <span id="texto-progreso">91%</span></div>
+                    <div class="barra-progreso">
+                        <div class="relleno-progreso" id="relleno-progreso" style="width: 91%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vista: Inicio -->
+            <div class="vista-pagina" data-vista="inicio">
+                <!-- Banners de Tarjetas -->
+                <div class="banners-tarjetas">
+                    <!-- Banner Tarjeta Débito -->
+                    <div class="banner-tarjeta" id="banner-tarjeta-1" data-tarjeta-id="1">
+                        <div class="info-tarjeta">
+                            <div class="icono-tarjeta">💳</div>
+                            <div class="detalles-tarjeta">
+                                <div class="nombre-tarjeta">Tarjeta Débito</div>
+                                <div class="termina-en">Termina en 4321</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Banner Tarjeta Prepago -->
+                    <div class="banner-tarjeta tarjeta-prepago" id="banner-tarjeta-2" data-tarjeta-id="2">
+                        <div class="info-tarjeta">
+                            <div class="icono-tarjeta">💳</div>
+                            <div class="detalles-tarjeta">
+                                <div class="nombre-tarjeta">Tarjeta Prepago</div>
+                                <div class="termina-en">Termina en 1234</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Misiones -->
+            <div class="seccion">
+                <div class="titulo-seccion"><i class="fi fi-rr-target"></i> Misiones Activas</div>
+                <div class="cuadricula-misiones" id="contenedor-misiones">
+                    <!-- Las misiones se cargan con JavaScript -->
+                </div>
+            </div>
+
+            <!-- Sección Misiones Detalladas (se muestra al hacer click en Misiones) -->
+            <div class="seccion" id="seccion-misiones-detalladas" style="display: none;">
+                <div class="titulo-seccion"><i class="fi fi-rr-target"></i> Misiones Bancarias</div>
+                
+                <!-- Filtros de misiones -->
+                <div class="filtros-misiones">
+                    <button class="filtro-btn activo" data-filtro="todas">Todas</button>
+                    <button class="filtro-btn" data-filtro="ahorro">Ahorro</button>
+                    <button class="filtro-btn" data-filtro="educacion">Educación</button>
+                    <button class="filtro-btn" data-filtro="recompensas">Recompensas</button>
+                </div>
+
+                <!-- Contenedor de misiones detalladas -->
+                <div class="misiones-detalladas-container" id="misiones-detalladas-container">
+                    <!-- Las misiones detalladas se cargan dinámicamente -->
+                </div>
+
+                <!-- Estadísticas -->
+                <div class="stats-bar">
+                    <div class="stat">
+                        <span class="stat-number" id="misiones-completadas">0</span>
+                        <span class="stat-label">Completadas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="total-recompensas">0€</span>
+                        <span class="stat-label">Ganadas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="progreso-total">0%</span>
+                        <span class="stat-label">Progreso</span>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Transacciones -->
+                <div class="seccion">
+                    <div class="titulo-seccion"><i class="fi fi-rr-chart-histogram"></i> Últimas Transacciones</div>
+                    <div class="lista-transacciones" id="contenedor-transacciones">
+                        <!-- Las transacciones se cargan con JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vista: Tarjetas -->
+            <div class="vista-pagina" data-vista="tarjetas" style="display: none;">
+                <!-- Sección de Tarjetas -->
+                <div class="seccion-tarjetas" id="seccion-tarjetas">
+                    <div class="encabezado-seccion">
+                        <h2 class="titulo-seccion-tarjetas">💳 Mis Tarjetas</h2>
+                    </div>
+
+                    <div class="tarjetas-contenedor" id="tarjetas-contenedor">
+                        <!-- Primera Tarjeta -->
+                        <div class="tarjeta-detalle" id="tarjeta-1">
+                            <div class="tarjeta-bancaria">
+                                <div class="tarjeta-logo">Visa</div>
+                                <div class="tarjeta-numero">**** **** **** <span class="ultimos-digitos-tarjeta">4321</span></div>
+                                <div class="tarjeta-chip"></div>
+                                <div class="tarjeta-info">
+                                    <div class="tarjeta-titular">—</div>
+                                    <div class="tarjeta-vencimiento">Vence: <span>12/27</span></div>
+                                </div>
+                            </div>
+
+                            <div class="acciones-tarjeta">
+                                <button class="boton-accion boton-bloquear">🔒 Bloquear Tarjeta</button>
+                                <button class="boton-accion boton-desbloquear" style="display: none;">🔓 Desbloquear Tarjeta</button>
+                                <button class="boton-accion boton-historial">📊 Ver Historial</button>
+                                <button class="boton-accion boton-limites">📈 Límites y Pagos</button>
+                            </div>
+                        </div>
+
+                        <!-- Segunda Tarjeta -->
+                        <div class="tarjeta-detalle" id="tarjeta-2">
+                            <div class="tarjeta-bancaria tarjeta-prepago">
+                                <div class="tarjeta-logo">Visa</div>
+                                <div class="tarjeta-numero">**** **** **** <span class="ultimos-digitos-tarjeta">1234</span></div>
+                                <div class="tarjeta-chip"></div>
+                                <div class="tarjeta-info">
+                                    <div class="tarjeta-titular">—</div>
+                                    <div class="tarjeta-vencimiento">Vence: <span>12/27</span></div>
+                                </div>
+                            </div>
+
+                            <div class="acciones-tarjeta">
+                                <button class="boton-accion boton-bloquear">🔒 Bloquear Tarjeta</button>
+                                <button class="boton-accion boton-desbloquear" style="display: none;">🔓 Desbloquear Tarjeta</button>
+                                <button class="boton-accion boton-historial">📊 Ver Historial</button>
+                                <button class="boton-accion boton-limites">📈 Límites y Pagos</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historial de tarjeta (oculto por defecto) -->
+                <div class="historial-tarjeta" id="historial-tarjeta-contenedor" style="display: none; margin-top: 24px;">
+                    <h3 class="titulo-historial">Historial de la Tarjeta</h3>
+                    <div class="lista-historial" id="lista-historial-tarjeta">
+                        <!-- Las transacciones se cargarán aquí -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vista: Cuentas -->
+            <div class="vista-pagina" data-vista="cuentas" style="display: none;">
+                <div class="seccion">
+                    <div class="titulo-seccion"><i class="fi fi-rr-bank"></i> Mis Cuentas Bancarias</div>
+                    <div id="contenedor-cuentas">
+                        <!-- Las cuentas se cargan con JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="vista-pagina" data-vista="touch-share" style="display: none;">
+                <div class="seccion">
+                    <div class="titulo-seccion"><i class="fi fi-rr-users-alt"></i> Comparte los Gastos con Amigos</div>
+
+                    <main class="contenido-principal-touch">
+                        <!-- Configurar gasto -->
+                        <section class="seccion configuracion-gasto">
+                            <h2 class="titulo-seccion">Configurar Gasto</h2>
+                            <div class="grupo-formulario">
+                                <label for="monto-total" class="etiqueta">Monto Total (€)</label>
+                                <input type="number" id="monto-total" class="campo-entrada" placeholder="Ej: 15" min="0" step="0.01">
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="numero-personas" class="etiqueta">Número de Personas</label>
+                                <input type="number" id="numero-personas" class="campo-entrada" placeholder="Ej: 3" min="2" max="10">
+                            </div>
+                            <button id="calcular" class="boton-principal">Calcular Reparto</button>
+                        </section>
+
+                        <!-- Resultados -->
+                        <section class="seccion resultados" id="seccion-resultados" style="display: none;">
+                            <h2 class="titulo-seccion">Resultados del Reparto</h2>
+                            <div class="resultado-info">
+                                <p>Total a dividir: <span id="total-mostrar" class="destacado">0€</span></p>
+                                <p>Cada persona debe pagar: <span id="cuota-mostrar" class="destacado">0€</span></p>
+                            </div>
+                            <div class="estado-deuda">
+                                <h3>Estado de Deudas</h3>
+                                <div id="lista-deudas" class="lista-deudas"></div>
+                            </div>
+                        </section>
+
+                        <!-- NFC -->
+                        <section class="seccion nfc">
+                            <h2 class="titulo-seccion">Pago con NFC</h2>
+                            <div class="contenedor-nfc">
+                                <div class="info-nfc">
+                                    <p>Acerca tu dispositivo al de tu amigo para realizar el pago</p>
+                                </div>
+                                <button id="activar-nfc" class="boton-nfc">
+                                    <span class="icono-nfc">📱</span>
+                                    Activar NFC
+                                </button>
+                                <div id="estado-nfc" class="estado-nfc"></div>
+                            </div>
+                        </section>
+
+                        <!-- Historial -->
+                        <section class="seccion historial">
+                            <h2 class="titulo-seccion">Historial de Pagos</h2>
+                            <div id="lista-pagos" class="lista-pagos"></div>
+                        </section>
+                    </main>
+                </div>
+            </div>
+
+            <!-- Vista: Misiones -->
+            <div class="vista-pagina" data-vista="misiones" style="display: none;">
+                <div class="seccion">
+                    <div class="titulo-seccion"><i class="fi fi-rr-gamepad"></i> Misiones Épicas</div>
+
+                    <div class="app-container">
+                        <div class="header-misiones">
+                            <div class="logo">
+                                <div class="logo-icon">BS</div>
+                                <div class="logo-text">Sabadell Jóvenes</div>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <h1 class="page-title">Misiones Épicas</h1>
+                            <p class="page-subtitle">Completa misiones y gana recompensas increíbles</p>
+
+                            <div class="missions-container">
+                                <div class="mission-card">
+                                    <h2 class="mission-title">Primer Ahorro Épico</h2>
+                                    <p class="mission-description">Ahorra 50€ este mes y gana recompensas especiales</p>
+                                    <div class="rewards">
+                                        <span class="reward">+5€ bonus</span>
+                                        <span class="reward">Insignia</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-text">Progreso: 65%</div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 65%"></div></div>
+                                    </div>
+                                    <button class="mission-button">Comenzar Misión</button>
+                                </div>
+
+                                <div class="mission-card">
+                                    <h2 class="mission-title">Gamer Legendario</h2>
+                                    <p class="mission-description">Completa 10 horas de estudio este mes</p>
+                                    <div class="rewards">
+                                        <span class="reward">Tarjeta Steam 20€</span>
+                                        <span class="reward">Insignia Gamer</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-text">Progreso: 40%</div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 40%"></div></div>
+                                    </div>
+                                    <button class="mission-button">Comenzar Misión</button>
+                                </div>
+
+                                <div class="mission-card">
+                                    <h2 class="mission-title">Experiencia Musical</h2>
+                                    <p class="mission-description">Ayuda en tareas domésticas 15 días seguidos</p>
+                                    <div class="rewards">
+                                        <span class="reward">Sorteo entradas concierto</span>
+                                        <span class="reward">Playlist exclusiva</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-text">Progreso: 20%</div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 20%"></div></div>
+                                    </div>
+                                    <button class="mission-button">Comenzar Misión</button>
+                                </div>
+
+                                <div class="mission-card">
+                                    <h2 class="mission-title">Aventura Cinéfila</h2>
+                                    <p class="mission-description">Lee 2 libros este mes</p>
+                                    <div class="rewards">
+                                        <span class="reward">Entrada de cine + palomitas</span>
+                                        <span class="reward">Insignia Lector</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-text">Progreso: 50%</div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
+                                    </div>
+                                    <button class="mission-button">Comenzar Misión</button>
+                                </div>
+
+                                <div class="mission-card">
+                                    <h2 class="mission-title">Chef en Formación</h2>
+                                    <p class="mission-description">Prepara 5 cenas para la familia</p>
+                                    <div class="rewards">
+                                        <span class="reward">Vale de 30€ para restaurante</span>
+                                        <span class="reward">Delantal personalizado</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-text">Progreso: 60%</div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 60%"></div></div>
+                                    </div>
+                                    <button class="mission-button">Comenzar Misión</button>
+                                </div>
+
+                                <div class="mission-card">
+                                    <h2 class="mission-title">Deportista Épico</h2>
+                                    <p class="mission-description">Ejercítate 3 veces por semana durante un mes</p>
+                                    <div class="rewards">
+                                        <span class="reward">Ropa deportiva 40€</span>
+                                        <span class="reward">Insignia Atleta</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-text">Progreso: 75%</div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+                                    </div>
+                                    <button class="mission-button">Comenzar Misión</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vista: Estadísticas -->
+            <div class="vista-pagina" data-vista="estadisticas" style="display: none;">
+                <div class="seccion">
+                    <div class="titulo-seccion"><i class="fi fi-rr-chart-histogram"></i> Estadísticas de Gastos</div>
+                    <div id="contenedor-estadisticas">
+                        <!-- Las estadísticas se cargan con JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vista: Transferencias -->
+            <div class="vista-pagina" data-vista="transferencias" style="display: none;">
+                <div class="seccion">
+                    <div class="titulo-seccion"><i class="fi fi-rr-arrow-right"></i> Transferencias y Pagos</div>
+
+                    <!-- Opciones de Transferencia -->
+                    <div class="grid-transferencias">
+                        <!-- Entre mis cuentas -->
+                        <div class="opcion-transferencia" id="transferencia-propia">
+                            <div class="icono-opcion">🔄</div>
+                            <h3 class="titulo-opcion">Entre mis cuentas</h3>
+                            <p class="desc-opcion">Mueve dinero entre tus cuentas al instante</p>
+                        </div>
+
+                        <!-- Bizum -->
+                        <div class="opcion-transferencia" id="bizum">
+                            <div class="icono-opcion">⚡</div>
+                            <h3 class="titulo-opcion">Bizum</h3>
+                            <p class="desc-opcion">Envía dinero con el móvil (límite 50€)</p>
+                        </div>
+
+                        <!-- Transferencia Nacional -->
+                        <div class="opcion-transferencia" id="transferencia-nacional">
+                            <div class="icono-opcion">🏦</div>
+                            <h3 class="titulo-opcion">Transferencia Nacional</h3>
+                            <p class="desc-opcion">A otras cuentas en España</p>
+                        </div>
+
+                        <!-- Transferencia Internacional -->
+                        <div class="opcion-transferencia" id="transferencia-internacional">
+                            <div class="icono-opcion">🌍</div>
+                            <h3 class="titulo-opcion">Internacional</h3>
+                            <p class="desc-opcion">Envíos al extranjero</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Transferencia (oculto inicialmente) -->
+                <div class="formulario-transferencia" id="formulario-transferencia" style="display: none;">
+                    <div class="header-formulario">
+                        <button class="btn-volver-form" id="btn-volver-form">← Volver</button>
+                        <h2 class="titulo-formulario" id="titulo-formulario">Nueva Transferencia</h2>
+                    </div>
+
+                    <div class="contenido-formulario">
+                        <!-- Cuenta de origen -->
+                        <div class="campo-form">
+                            <label for="cuenta-origen">Desde cuenta</label>
+                            <select id="cuenta-origen" class="select-cuenta">
+                                <option value="">Selecciona una cuenta</option>
+                            </select>
+                        </div>
+
+                        <!-- Campos dinámicos según tipo de transferencia -->
+                        <div id="campos-dinamicos">
+                            <!-- Se cargarán según el tipo -->
+                        </div>
+
+                        <!-- Importe -->
+                        <div class="campo-form">
+                            <label for="importe">Importe (€)</label>
+                            <input type="number" id="importe" class="input-form" placeholder="0.00" min="0" step="0.01">
+                            <div class="info-limite" id="info-limite" style="display: none;"></div>
+                        </div>
+
+                        <!-- Concepto -->
+                        <div class="campo-form">
+                            <label for="concepto">Concepto</label>
+                            <input type="text" id="concepto" class="input-form" placeholder="Describe el motivo del pago">
+                        </div>
+
+                        <!-- Resumen -->
+                        <div class="resumen-transferencia" id="resumen-transferencia" style="display: none;">
+                            <h3>Resumen</h3>
+                            <div class="linea-resumen">
+                                <span>Desde:</span>
+                                <span id="resumen-desde">-</span>
+                            </div>
+                            <div class="linea-resumen">
+                                <span>Hacia:</span>
+                                <span id="resumen-hacia">-</span>
+                            </div>
+                            <div class="linea-resumen destacado">
+                                <span>Importe:</span>
+                                <span id="resumen-importe">0.00€</span>
+                            </div>
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="botones-formulario">
+                            <button class="btn-cancelar" id="btn-cancelar-form">Cancelar</button>
+                            <button class="btn-confirmar" id="btn-confirmar-form">Confirmar Transferencia</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegación Inferior -->
+        <div class="navegacion-inferior">
+            <div class="elemento-nav activo" data-pagina="inicio">
+                <div class="icono-nav"><i class="fi fi-rr-home"></i></div>
+                <div>Inicio</div>
+            </div>
+            <div class="elemento-nav" data-pagina="cuentas">
+                <div class="icono-nav"><i class="fi fi-rr-bank"></i></div>
+                <div>Cuentas</div>
+            </div>
+            <div class="elemento-nav" data-pagina="transferencias">
+                <div class="icono-nav"><i class="fi fi-rr-arrow-right"></i></div>
+                <div>Transferencias</div>
+            </div>
+            <div class="elemento-nav" data-pagina="misiones">
+                <div class="icono-nav"><i class="fi fi-rr-gamepad"></i></div>
+                <div>Misiones</div>
+            </div>
+            <div class="elemento-nav" data-pagina="sabadingo">
+                <div class="icono-nav"><i class="fi fi-rr-graduation-cap"></i></div>
+                <div>SabaDingo</div>
+            </div>
+            <div class="elemento-nav" data-pagina="touch-share">
+                <div class="icono-nav"><i class="fi fi-rr-users-alt"></i></div>
+                <div>Touch & Share</div>
+            </div>
+            <div class="elemento-nav" data-pagina="misiones">
+                <div class="icono-nav"><i class="fi fi-rr-gamepad"></i></div>
+                <div>Misiones</div>
+            </div>
+            <div class="elemento-nav" data-pagina="estadisticas">
+                <div class="icono-nav"><i class="fi fi-rr-chart-histogram"></i></div>
+                <div>Estadísticas</div>
+            </div>
+            <div class="elemento-nav" data-pagina="perfil">
+                <div class="icono-nav"><i class="fi fi-rr-user"></i></div>
+                <div>Perfil</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Perfil (overlay) -->
+    <div id="pagina-perfil" class="overlay-perfil" style="display:none">
+        <div class="card-perfil">
+            <button id="cerrar-perfil" class="cerrar-perfil" aria-label="Cerrar">✕</button>
+            <div class="avatar-contenedor">
+                <img id="perfil-avatar" src="../src/assets/default-avatar.png" alt="Avatar" class="avatar-img">
+            </div>
+            <div class="info-perfil">
+                <div class="campo">
+                    <label>Nombre</label>
+                    <input id="perfil-nombre" type="text" placeholder="Tu nombre">
+                </div>
+                <div class="campo">
+                    <label>Email</label>
+                    <input id="perfil-email" type="email" placeholder="tu@ejemplo.com">
+                </div>
+                <div class="campo">
+                    <label>Imagen avatar (URL)</label>
+                    <input id="perfil-avatar-url" type="text" placeholder="../src/assets/default-avatar.png">
+                </div>
+                <div class="acciones-perfil">
+                    <button id="guardar-perfil" class="boton-principal">Guardar</button>
+                    <button id="cerrar-perfil-2" class="boton-secundario">Cerrar</button>
+                </div>
+                <div class="accion-logout">
+                    <button id="logout-btn" class="boton-link">Cerrar sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Footer Legal -->
+    <footer class="footer-legal" id="footer-legal" style="display: none;">
+        <div class="footer-header">
+            <h3>Información Legal</h3>
+            <button class="cerrar-footer" id="cerrar-footer">✕</button>
+        </div>
+        
+        <div class="footer-content">
+            <div class="legal-tabs">
+                <button class="legal-tab activo" data-tab="privacidad">Política de Privacidad</button>
+                <button class="legal-tab" data-tab="terminos">Términos y Condiciones</button>
+                <button class="legal-tab" data-tab="acerca">Acerca de</button>
+            </div>
+            
+            <div class="legal-content">
+                <!-- Política de Privacidad -->
+                <div class="legal-tab-content activo" id="privacidad-content">
+                    <h4>Política de Privacidad - Sabadell First</h4>
+                    <div class="legal-text">
+                        <p><strong>Última actualización:</strong> Enero 2024</p>
+                        
+                        <h5>1. Información que Recopilamos</h5>
+                        <p>En Sabadell First, recopilamos únicamente la información necesaria para proporcionar nuestros servicios bancarios seguros para jóvenes:</p>
+                        <ul>
+                            <li>Información de identificación (DNI/NIE)</li>
+                            <li>Datos de contacto (email del tutor legal)</li>
+                            <li>Información de transacciones financieras</li>
+                            <li>Datos de uso de la aplicación</li>
+                        </ul>
+                        
+                        <h5>2. Cómo Usamos tu Información</h5>
+                        <p>Tu información se utiliza para:</p>
+                        <ul>
+                            <li>Proporcionar servicios bancarios seguros</li>
+                            <li>Verificar tu identidad y edad</li>
+                            <li>Proteger tu cuenta contra fraudes</li>
+                            <li>Mejorar tu experiencia en la app</li>
+                            <li>Cumplir con obligaciones legales</li>
+                        </ul>
+                        
+                        <h5>3. Compartir Información</h5>
+                        <p>No vendemos tu información. Solo compartimos datos con:</p>
+                        <ul>
+                            <li>Tus padres/tutores legales</li>
+                            <li>Autoridades cuando es requerido por ley</li>
+                            <li>Proveedores de servicios esenciales</li>
+                        </ul>
+                        
+                        <h5>4. Tus Derechos</h5>
+                        <p>Tienes derecho a:</p>
+                        <ul>
+                            <li>Acceder a tu información</li>
+                            <li>Corregir datos incorrectos</li>
+                            <li>Solicitar la eliminación de tu cuenta</li>
+                            <li>Oponerte al tratamiento de datos</li>
+                        </ul>
+                        
+                        <h5>5. Seguridad</h5>
+                        <p>Implementamos medidas de seguridad avanzadas para proteger tu información, incluyendo encriptación y controles de acceso.</p>
+                        
+                        <h5>6. Contacto</h5>
+                        <p>Para preguntas sobre privacidad: <strong>privacidad@sabadellfirst.com</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Términos y Condiciones -->
+                <div class="legal-tab-content" id="terminos-content">
+                    <h4>Términos y Condiciones - Sabadell First</h4>
+                    <div class="legal-text">
+                        <p><strong>Vigente desde:</strong> Enero 2024</p>
+                        
+                        <h5>1. Aceptación de Términos</h5>
+                        <p>Al usar Sabadell First, aceptas estos términos y condiciones. Esta app está diseñada específicamente para jóvenes entre 14-17 años bajo supervisión parental.</p>
+                        
+                        <h5>2. Elegibilidad</h5>
+                        <p>Para usar Sabadell First debes:</p>
+                        <ul>
+                            <li>Tener entre 14 y 17 años</li>
+                            <li>Contar con autorización de tus padres/tutores</li>
+                            <li>Proporcionar documentación válida</li>
+                            <li>Residir en España</li>
+                        </ul>
+                        
+                        <h5>3. Cuentas y Límites</h5>
+                        <p>Las cuentas juveniles tienen límites específicos:</p>
+                        <ul>
+                            <li>Límite de gasto diario: 50€</li>
+                            <li>Límite de transferencia: 30€ por operación</li>
+                            <li>Máximo mensual en compras online: 100€</li>
+                            <li>Supervisión parental obligatoria</li>
+                        </ul>
+                        
+                        <h5>4. Responsabilidades del Usuario</h5>
+                        <p>Te comprometes a:</p>
+                        <ul>
+                            <li>Mantener tu contraseña segura</li>
+                            <li>Notificar uso no autorizado inmediatamente</li>
+                            <li>Usar la app solo para fines legales</li>
+                            <li>No compartir información de acceso</li>
+                        </ul>
+                        
+                        <h5>5. Transacciones</h5>
+                        <p>Todas las transacciones están sujetas a verificación y pueden ser revisadas por tus padres/tutores.</p>
+                        
+                        <h5>6. Modificaciones</h5>
+                        <p>Nos reservamos el derecho de modificar estos términos. Notificaremos cambios significativos.</p>
+                        
+                        <h5>7. Terminación</h5>
+                        <p>Podemos suspender o terminar tu acceso por violación de estos términos o actividades fraudulentas.</p>
+                    </div>
+                </div>
+                
+                <!-- Acerca de -->
+                <div class="legal-tab-content" id="acerca-content">
+                    <h4>Acerca de Sabadell First</h4>
+                    <div class="legal-text">
+                        <div class="about-hero">
+                            <h5>🚀 Tu Primera Experiencia Bancaria Segura</h5>
+                            <p>Sabadell First es la primera app bancaria diseñada específicamente para adolescentes entre 14-17 años, creada por Banco Sabadell.</p>
+                        </div>
+                        
+                        <h5>Nuestra Misión</h5>
+                        <p>Empoderar a la nueva generación con herramientas financieras seguras, educativas y divertidas para que aprendan a gestionar su dinero responsablemente.</p>
+                        
+                        <h5>Características Principales</h5>
+                        <ul>
+                            <li><strong>💳 Cuentas Supervisadas:</strong> Tus padres siempre están informados</li>
+                            <li><strong>🎮 Aprendizaje Gamificado:</strong> Aprende finanzas jugando</li>
+                            <li><strong>🔒 Máxima Seguridad:</strong> Tecnología bancaria profesional</li>
+                            <li><strong>📱 Diseño Juvenil:</strong> Interfaz creada para ti</li>
+                            <li><strong>💰 Límites Protectores:</strong> Gastos controlados y seguros</li>
+                        </ul>
+                        
+                        <h5>Para Padres y Tutores</h5>
+                        <p>Sabadell First ofrece:</p>
+                        <ul>
+                            <li>Control parental completo</li>
+                            <li>Alertas en tiempo real</li>
+                            <li>Límites personalizables</li>
+                            <li>Informes de actividad</li>
+                            <li>Soporte dedicado</li>
+                        </ul>
+                        
+                        <h5>Compromiso Educativo</h5>
+                        <p>Trabajamos con expertos en educación financiera para desarrollar contenido que enseñe:</p>
+                        <ul>
+                            <li>Gestión de presupuestos</li>
+                            <li>Ahorro inteligente</li>
+                            <li>Inversión básica</li>
+                            <li>Prevención de fraudes</li>
+                            <li>Consumo responsable</li>
+                        </ul>
+                        
+                        <h5>Seguridad y Privacidad</h5>
+                        <p>Utilizamos la misma tecnología de seguridad que la banca online para adultos, adaptada a las necesidades específicas de los jóvenes.</p>
+                        
+                        <div class="contact-info">
+                            <h5>Contacto</h5>
+                            <p><strong>Soporte:</strong> soporte@sabadellfirst.com</p>
+                            <p><strong>Educación:</strong> educacion@sabadellfirst.com</p>
+                            <p><strong>Padres:</strong> padres@sabadellfirst.com</p>
+                        </div>
+                        
+                        <div class="legal-disclaimer">
+                            <p><strong>Importante:</strong> Sabadell First es un producto de Banco Sabadell S.A. sujeto a la supervisión del Banco de España. Todos los depósitos están garantizados hasta 100.000€ por el Fondo de Garantía de Depósitos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante para abrir legal -->
+    <button class="boton-legal-flotante" id="boton-legal-flotante">
+        <i class="fi fi-rr-scale"></i>
+    </button>
+
+    <script src="../src/js/touch_share/touch_share.js"></script>
+    <script src="../src/js/misiones/misiones.js"></script>
+    <script type="module" src="../src/js/main.js"></script>
+</body>
+</html>

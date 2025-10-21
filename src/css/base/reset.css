@@ -1,0 +1,21 @@
+/**
+ * Reset y estilos base
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: var(--color-fondo-blanco);
+    min-height: 100vh;
+    overflow-x: hidden;
+}

@@ -1,0 +1,27 @@
+/**
+ * Componente de Barra de Estado
+ */
+
+.barra-estado {
+    background: transparent;
+    padding: var(--espaciado-sm) var(--espaciado-lg) var(--espaciado-xs);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-texto-principal);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.hora-actual {
+    font-weight: bold;
+}
+
+.iconos-estado {
+    display: flex;
+    gap: var(--espaciado-xs);
+}

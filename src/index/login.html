@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabadell First - Login</title>
+    <link rel="stylesheet" href="../css/login/styles.css">
+    <script src="../../src/js/login/app.js" defer></script>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Icono de la app -->
+        <img src="../../src/assets/logo.png" alt="Sabadell First" class="app-icon">
+        
+        <!-- Logo -->
+        <div class="logo">
+            SABADELL FIRST
+        </div>
+        
+        <h1>¡Hola de nuevo!</h1>
+        <p class="subtitle">Tu banco para jóvenes aventureros</p>
+        
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="dni">DNI/NIE</label>
+                <input type="text" id="dni" placeholder="Ej: 12345678X" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Tu contraseña secreta" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                </div>
+            </div>
+            
+            <div class="error-message" id="errorMessage">
+                DNI o contraseña incorrectos
+            </div>
+            
+            <button type="submit" class="login-btn pulse">
+                🚀 Entrar a mi cuenta
+            </button>
+        </form>
+        
+        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">💳</div>
+                Tu dinero seguro
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                App moderna
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎮</div>
+                Para jóvenes
+            </div>
+        </div>
+    </div>
+</body>
+</html>

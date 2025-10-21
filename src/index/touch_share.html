@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tricount NFC - Banco Sabadell Jóvenes</title>
+    <link rel="stylesheet" href="../css/touch_share/touch_share.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header class="encabezado">
+            <button class="boton-volver" id="boton-volver" aria-label="Volver a la app">
+                ← Volver
+            </button>
+            <div class="logo-sabadell">
+                <img src="../assets/logo.png" alt="Sabadell First" class="circulo-logo">
+                <h1 class="titulo-principal">Touch & Share</h1>
+            </div>
+            <p class="subtitulo">Divide gastos con amigos al instante</p>
+        </header>
+
+        <main class="contenido-principal">
+            <!-- Sección para configurar el gasto -->
+            <section class="seccion configuracion-gasto">
+                <h2 class="titulo-seccion">Configurar Gasto</h2>
+                <div class="grupo-formulario">
+                    <label for="monto-total" class="etiqueta">Monto Total (€)</label>
+                    <input type="number" id="monto-total" class="campo-entrada" placeholder="Ej: 15" min="0" step="0.01">
+                </div>
+                <div class="grupo-formulario">
+                    <label for="numero-personas" class="etiqueta">Número de Personas</label>
+                    <input type="number" id="numero-personas" class="campo-entrada" placeholder="Ej: 3" min="2" max="10">
+                </div>
+                <button id="calcular" class="boton-principal">Calcular Reparto</button>
+            </section>
+
+            <!-- Sección de resultados -->
+            <section class="seccion resultados" id="seccion-resultados" style="display: none;">
+                <h2 class="titulo-seccion">Resultados del Reparto</h2>
+                <div class="resultado-info">
+                    <p>Total a dividir: <span id="total-mostrar" class="destacado">0€</span></p>
+                    <p>Cada persona debe pagar: <span id="cuota-mostrar" class="destacado">0€</span></p>
+                </div>
+                <div class="estado-deuda">
+                    <h3>Estado de Deudas</h3>
+                    <div id="lista-deudas" class="lista-deudas">
+                        <!-- Las deudas se generarán aquí dinámicamente -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección NFC -->
+            <section class="seccion nfc">
+                <h2 class="titulo-seccion">Pago con NFC</h2>
+                <div class="contenedor-nfc">
+                    <div class="info-nfc">
+                        <p>Acerca tu dispositivo al de tu amigo para realizar el pago</p>
+                    </div>
+                    <button id="activar-nfc" class="boton-nfc">
+                        <span class="icono-nfc">📱</span>
+                        Activar NFC
+                    </button>
+                    <div id="estado-nfc" class="estado-nfc">
+                        <!-- Estado de la conexión NFC se mostrará aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de historial -->
+            <section class="seccion historial">
+                <h2 class="titulo-seccion">Historial de Pagos</h2>
+                <div id="lista-pagos" class="lista-pagos">
+                    <!-- Los pagos realizados se mostrarán aquí -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../js/touch_share/touch_share.js"></script>
+</body>
+</html>

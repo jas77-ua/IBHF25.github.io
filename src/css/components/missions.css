@@ -1,0 +1,80 @@
+/**
+ * Componente de Misiones
+ */
+
+.cuadricula-misiones {
+    display: grid;
+    gap: var(--espaciado-md);
+    margin-bottom: 25px;
+    /* Mostrar tarjetas lado a lado de forma responsive */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    align-items: start; /* Alinear tarjetas en la parte superior */
+}
+
+.tarjeta-mision {
+    background: var(--color-fondo-blanco);
+    border-radius: var(--border-radius-lg);
+    padding: var(--espaciado-lg);
+    box-shadow: var(--shadow-sm);
+    border-left: 5px solid var(--color-primario);
+    transition: all var(--transition-rapida);
+    animation: aparecer 0.5s ease-out;
+}
+
+/* Asegurar que el contenido de la tarjeta se apile verticalmente */
+.tarjeta-mision {
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-mision:active {
+    transform: scale(0.98);
+}
+
+.titulo-mision {
+    font-weight: bold;
+    font-size: var(--font-size-md);
+    margin-bottom: 8px;
+    color: var(--color-texto-principal);
+}
+
+.descripcion-mision {
+    color: var(--color-texto-secundario);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--espaciado-md);
+    line-height: 1.4;
+}
+
+.recompensa-mision {
+    background: var(--color-primario);
+    color: white;
+    padding: 6px 12px;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-sm);
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.progreso-mision {
+    margin-bottom: var(--espaciado-sm);
+}
+
+.texto-progreso-mision {
+    font-size: var(--font-size-sm);
+    color: var(--color-texto-secundario);
+    margin-bottom: var(--espaciado-xs);
+}
+
+.barra-progreso-mision {
+    background: var(--color-fondo-gris);
+    border-radius: var(--border-radius-sm);
+    height: 6px;
+    overflow: hidden;
+}
+
+.relleno-progreso-mision {
+    background: var(--color-primario);
+    height: 100%;
+    border-radius: var(--border-radius-sm);
+    transition: width var(--transition-media);
+}

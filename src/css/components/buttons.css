@@ -1,0 +1,37 @@
+/**
+ * Estilos de botones generales
+ */
+
+/* Botones generales */
+.boton {
+    border: none;
+    padding: 12px var(--espaciado-lg);
+    border-radius: var(--border-radius-xl);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all var(--transition-rapida);
+    width: 100%;
+    font-size: var(--font-size-base);
+}
+
+.boton-principal {
+    background: var(--color-primario);
+    color: white;
+    border-radius: 5px;
+}
+
+.boton-principal:active {
+    background: #0088c0;
+    transform: scale(0.98);
+}
+
+.boton-exito {
+    background: var(--color-exito);
+    color: white;
+}
+
+.boton:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
