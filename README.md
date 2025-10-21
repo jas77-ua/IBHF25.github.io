@@ -360,14 +360,14 @@ podman run -d --pod sabadell-first --name sabadell-first-container sabadell-firs
 El proyecto está configurado para desplegarse en GitHub Pages:
 
 1. Push a la rama `main`
-2. Accede a: `https://[tu-usuario].github.io/IBHF25.github.io/`
+2. Accede a: `https://jas77-ua.github.io/IBHF25.github.io/`
 
 ## Credenciales de Demo
 
 Para probar la aplicación, usa las siguientes credenciales en el login:
 
 - **DNI**: `12345678X` (o cualquier DNI válido)
-- **Contraseña**: Cualquier contraseña (modo demo)
+- **Contraseña**: Cualquier contraseña superior a 4 caracteres (modo demo)
 
 ## Roadmap
 
@@ -410,7 +410,7 @@ Este proyecto es un prototipo educativo creado para demostrar conceptos de banca
 
 **Equipo IBHF25**
 - Proyecto: Sabadell First
-- Hackathon: [Nombre del evento]
+- Hackathon: Innovation Banking HackFest 2025
 - Año: 2025
 
 ## Agradecimientos
