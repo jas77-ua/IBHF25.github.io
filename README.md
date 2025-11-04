@@ -4,18 +4,24 @@ Página desplegada en:
 http://ibhf25.jabotech.me/
 
 
-# Sabadell First
+# YouthBank First
+
+> 🚨 **PROTOTIPO EDUCATIVO** - Esta es una aplicación de demostración sin funcionalidad bancaria real
 
 > App bancaria innovadora diseñada específicamente para jóvenes de 14-17 años
 
+## ⚠️ Aviso Importante
+
+**Este es un prototipo educativo y NO es una aplicación bancaria real.** No maneja dinero real, no realiza transacciones reales y todos los datos son ficticios. Este proyecto fue creado con fines demostrativos y educativos.
+
 ## Descripción
 
-**Sabadell First** es la primera aplicación bancaria creada por Banco Sabadell para adolescentes, combinando educación financiera, gamificación y control parental en una experiencia moderna y segura.
+**YouthBank First** es un prototipo de aplicación bancaria para adolescentes, combinando educación financiera, gamificación y control parental en una experiencia moderna y segura.
 
 ### Problemas que Resuelve
 
-- **Falta de acceso bancario para menores**: Primera cuenta bancaria supervisada para jóvenes
-- **Captación temprana de clientes**: Los usuarios crecen con Sabadell y permanecen a largo plazo
+- **Falta de acceso bancario para menores**: Concepto de cuenta bancaria supervisada para jóvenes
+- **Captación temprana de clientes**: Demostración de cómo los usuarios podrían crecer con un banco
 - **Educación financiera deficiente**: Introduce conceptos de ahorro, inversión y gasto responsable desde temprana edad
 - **Desmitificación bancaria**: Elimina prejuicios sobre entidades bancarias mediante una experiencia transparente y amigable
 
@@ -136,10 +142,10 @@ Módulo educativo gamificado para aprender sobre finanzas (en desarrollo)
 
 ### 11. Información Legal y Transparencia
 
-- **Política de Privacidad**: Información detallada sobre recopilación y uso de datos
-- **Términos y Condiciones**: Reglas de uso, límites y responsabilidades
-- **Acerca de Sabadell First**: Misión, características y compromiso educativo
-- **Contactos**: Soporte, educación y atención a padres
+- **Política de Privacidad**: Información de ejemplo sobre recopilación y uso de datos
+- **Términos y Condiciones**: Ejemplo de reglas de uso, límites y responsabilidades
+- **Acerca de YouthBank First**: Misión, características y compromiso educativo del prototipo
+- **Contactos**: Información de contacto de ejemplo
 
 ## Características Técnicas
 
@@ -168,13 +174,14 @@ Módulo educativo gamificado para aprender sobre finanzas (en desarrollo)
 - 5% cashback en hábitos saludables
 - Proyecciones de ahorro ("Si hicieras esto cada semana, ahorrarías 20€ al año")
 
-### Seguridad
+### Seguridad (Conceptual)
 
+Este prototipo demuestra conceptos de:
 - Encriptación de datos
 - Autenticación segura
 - Tecnología bancaria profesional
-- Garantía de depósitos hasta 100.000€ (Fondo de Garantía de Depósitos)
-- Supervisión del Banco de España
+
+**Nota**: Como prototipo, no implementa sistemas de seguridad bancaria reales ni maneja datos sensibles reales.
 
 
 ---
@@ -342,23 +349,23 @@ Accede a: `http://localhost:8080`
 
 ```bash
 # Construir la imagen
-docker build -t sabadell-first .
+docker build -t youthbank-first .
 
 # Ejecutar el contenedor
-docker run -d -p 8080:80 --name sabadell-first sabadell-first
+docker run -d -p 8080:80 --name youthbank-first youthbank-first
 ```
 
 ### Opción 3: Podman
 
 ```bash
 # Crear el pod
-podman pod create --name sabadell-first -p 8080:80
+podman pod create --name youthbank-first -p 8080:80
 
 # Construir la imagen
-podman build -t sabadell-first .
+podman build -t youthbank-first .
 
 # Ejecutar el contenedor
-podman run -d --pod sabadell-first --name sabadell-first-container sabadell-first
+podman run -d --pod youthbank-first --name youthbank-first-container youthbank-first
 ```
 
 ### Opción 4: GitHub Pages
@@ -415,16 +422,24 @@ Este proyecto es un prototipo educativo creado para demostrar conceptos de banca
 ## Contacto
 
 **Equipo IBHF25**
-- Proyecto: Sabadell First
+- Proyecto: YouthBank First (Prototipo)
 - Hackathon: Innovation Banking HackFest 2025
 - Año: 2025
 
 ## Agradecimientos
 
-- **Banco Sabadell**: Por la inspiración del concepto
 - **Flaticon**: Por los iconos utilizados
 - **Comunidad Open Source**: Por las herramientas y recursos
 
 ---
 
-**Nota**: Este es un proyecto de demostración educativa. No es una aplicación bancaria real y no maneja dinero real. Todos los datos son ficticios y se almacenan localmente en el navegador.
+## ⚠️ DISCLAIMER IMPORTANTE
+
+**Este es un proyecto de demostración educativa y NO es una aplicación bancaria real:**
+- ❌ No maneja dinero real
+- ❌ No realiza transacciones bancarias reales
+- ❌ No está conectado a ninguna institución financiera
+- ❌ No recopila datos personales reales
+- ℹ️ Todos los datos mostrados son ficticios
+- ℹ️ Los datos se almacenan únicamente de forma local en el navegador
+- ℹ️ Este proyecto fue creado con fines educativos y de demostración

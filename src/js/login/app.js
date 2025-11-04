@@ -61,7 +61,7 @@ function showLoadingScreen() {
             <div class="loading-content">
                 <div class="loading-spinner"></div>
                 <h2>Accediendo a tu cuenta...</h2>
-                <p>Preparando tu experiencia Sabadell First</p>
+                <p>Preparando tu experiencia YouthBank First (Demo)</p>
             </div>
         </div>
     `;

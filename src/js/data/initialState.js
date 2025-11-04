@@ -12,7 +12,7 @@ export const initialState = {
     tarjetas: [
         {
             id: 1,
-            nombre: "Tarjeta Sabadell First",
+            nombre: "Tarjeta YouthBank Débito",
             numero: "4532123456784321",
             bloqueada: false,
             titular: "Default",
@@ -22,7 +22,7 @@ export const initialState = {
         },
         {
             id: 2,
-            nombre: "Tarjeta Sabadell Young",
+            nombre: "Tarjeta YouthBank Prepago",
             numero: "4532987656895",
             bloqueada: false,
             titular: "Default",

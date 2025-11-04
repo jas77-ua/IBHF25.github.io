@@ -1,5 +1,5 @@
 /**
- * Punto de entrada principal de la aplicación Sabadell NEXT
+ * Punto de entrada principal de la aplicación YouthBank First (Prototipo Educativo)
  */
 
 import { appState } from './state/appState.js';
@@ -147,7 +147,7 @@ class App {
 
         this.setupLegalFooter();
 
-        console.log('🚀 Aplicación Sabadell NEXT iniciada correctamente');
+        console.log('🚀 Aplicación YouthBank First (Prototipo) iniciada correctamente');
     }
 
     /**

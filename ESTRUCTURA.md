@@ -1,4 +1,6 @@
-# 📁 Estructura del Proyecto - Sabadell NEXT
+# 📁 Estructura del Proyecto - YouthBank First
+
+## ⚠️ AVISO: Este es un prototipo educativo, NO una aplicación bancaria real
 
 ## 🎯 Objetivos de la Refactorización
 
