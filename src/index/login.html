@@ -38,11 +38,41 @@
 
         @media (max-width: 768px) {
             body {
-                padding-top: 110px !important;
+                padding-top: 120px !important;
             }
             #prototype-banner {
                 font-size: 14px;
                 padding: 10px 15px;
+            }
+            #prototype-banner > div:first-child span:nth-child(2) {
+                font-size: 14px;
+            }
+            #prototype-banner > div:last-child {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 140px !important;
+            }
+            #prototype-banner {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+            #prototype-banner > div:first-child {
+                gap: 10px;
+            }
+            #prototype-banner > div:first-child span:first-child,
+            #prototype-banner > div:first-child span:last-child {
+                font-size: 20px;
+            }
+            #prototype-banner > div:first-child span:nth-child(2) {
+                font-size: 12px;
+            }
+            #prototype-banner > div:last-child {
+                font-size: 10px;
+                margin-top: 4px;
             }
         }
     </style>
@@ -66,7 +96,7 @@
         <p class="subtitle">Tu banco demo para jóvenes aventureros</p>
 
         <!-- Aviso de seguridad muy llamativo -->
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: 3px solid #5a67d8; border-radius: 15px; padding: 20px; margin: 20px 0; text-align: center; box-shadow: 0 8px 16px rgba(0,0,0,0.2); animation: pulse-border 2s infinite;">
+        <div class="security-notice" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: 3px solid #5a67d8; border-radius: 15px; padding: 20px; margin: 20px 0; text-align: center; box-shadow: 0 8px 16px rgba(0,0,0,0.2); animation: pulse-border 2s infinite;">
             <div style="font-size: 40px; margin-bottom: 10px;">🔓✨</div>
             <div style="color: white; font-weight: bold; font-size: 18px; margin-bottom: 10px;">
                 ¡TRANQUILO! PUEDES PROBAR CON CUALQUIER DATO

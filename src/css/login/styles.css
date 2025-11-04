@@ -26,9 +26,14 @@ body {
 }
 
 .app-icon {
-    font-size: 60px;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
     margin-bottom: 15px;
     animation: float 3s ease-in-out infinite;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @keyframes float {
@@ -227,4 +232,249 @@ input:focus {
 .loading-content p {
     color: #666;
     font-size: 14px;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .login-container {
+        padding: 30px 20px;
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    /* Security notice responsive */
+    .security-notice {
+        padding: 15px !important;
+        margin: 15px 0 !important;
+        border-radius: 12px !important;
+    }
+
+    .security-notice > div:first-child {
+        font-size: 32px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .security-notice > div:nth-child(2) {
+        font-size: 16px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .security-notice > div:nth-child(3) {
+        font-size: 13px !important;
+    }
+
+    .security-notice > div:last-child {
+        font-size: 12px !important;
+        padding: 8px !important;
+        margin-top: 12px !important;
+    }
+
+    .app-icon {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        font-size: 16px;
+        padding: 10px 16px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .login-btn {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .features {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .feature {
+        font-size: 13px;
+    }
+
+    .feature-icon {
+        font-size: 24px;
+    }
+
+    .forgot-password {
+        font-size: 13px;
+        margin-top: 15px;
+    }
+
+    .loading-content {
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+
+    .loading-content h2 {
+        font-size: 20px;
+    }
+
+    .loading-content p {
+        font-size: 13px;
+    }
+}
+
+/* Extra Small Devices (phones in portrait, less than 480px) */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 25px 15px;
+        border-radius: 15px;
+    }
+
+    /* Security notice responsive for small screens */
+    .security-notice {
+        padding: 12px !important;
+        margin: 12px 0 !important;
+        border-radius: 10px !important;
+        border-width: 2px !important;
+    }
+
+    .security-notice > div:first-child {
+        font-size: 28px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .security-notice > div:nth-child(2) {
+        font-size: 14px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .security-notice > div:nth-child(3) {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+    }
+
+    .security-notice > div:last-child {
+        font-size: 11px !important;
+        padding: 6px !important;
+        margin-top: 10px !important;
+    }
+
+    .app-icon {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 8px;
+    }
+
+    .logo {
+        font-size: 14px;
+        padding: 8px 12px;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .login-btn {
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .error-message {
+        font-size: 12px;
+    }
+
+    .toggle-password {
+        font-size: 12px;
+        right: 10px;
+    }
+
+    .features {
+        gap: 12px;
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+
+    .feature {
+        font-size: 12px;
+    }
+
+    .feature-icon {
+        font-size: 20px;
+        margin-bottom: 4px;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .login-container {
+        margin: 20px auto;
+        padding: 20px 25px;
+    }
+
+    .app-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 8px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .subtitle {
+        margin-bottom: 15px;
+    }
+
+    .input-group {
+        margin-bottom: 12px;
+    }
+
+    .features {
+        margin-top: 15px;
+        padding-top: 12px;
+    }
 }
