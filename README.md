@@ -1,9 +1,3 @@
-# Despliegue
-
-Página desplegada en:
-http://ibhf25.jabotech.me/
-
-
 # YouthBank First
 
 > 🚨 **PROTOTIPO EDUCATIVO** - Esta es una aplicación de demostración sin funcionalidad bancaria real
